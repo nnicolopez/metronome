@@ -1,0 +1,18 @@
+<div>
+  <div class="metronome-animation">
+  </div>
+  <div class="metronome-bpm" text-center>
+    <h1 >{{ bpm }}</h1>
+    <ion-range [(ngModel)]="bpm" (ngModelChange)="onChange()" color="danger" pin="true" min="30" max="400"></ion-range>
+    <ion-row (click)="onChange()">
+      <ion-col><button ion-button clear (click)="bpm = bpm - 5">-5</button></ion-col>
+      <ion-col><button ion-button clear (click)="bpm = bpm - 1">-1</button></ion-col>
+      <ion-col><button ion-button clear (click)="bpm = bpm + 1">+1</button></ion-col>
+      <ion-col><button ion-button clear (click)="bpm = bpm + 5">+5</button></ion-col>
+    </ion-row>
+  </div>
+</div>
+
+<button ion-button full (click)="metronomeBegin()">Start</button>
+<button ion-button full (click)="metronomeStop()">Stop</button>
+
