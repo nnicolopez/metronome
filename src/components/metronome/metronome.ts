@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {Vibration} from "@ionic-native/vibration";
+import { Vibration } from "@ionic-native/vibration";
+import { NativeAudio } from "@ionic-native/native-audio";
 
 
 @Component({
@@ -11,6 +12,7 @@ export class MetronomeComponent {
   minute: number = 60000;
   is_playing = false;
   interval;
+  tick;
 
   metronomeBegin() {
     if (!this.is_playing) {
@@ -36,11 +38,15 @@ export class MetronomeComponent {
   metronome(rate) {
     this.interval = setInterval(()=>{
       console.log(Date.now());
-      this.vibration.vibrate(100);
+      this.nativeAudio.play('uniqueId1').then(() => this.vibration.vibrate(100));
+
     }, rate);
   }
 
-  constructor(private vibration: Vibration) {
+  constructor(private vibration: Vibration,
+              private nativeAudio: NativeAudio) {
+    this.nativeAudio.preloadSimple('uniqueId1', 'assets/mp3/tick.wav').then((data) => alert(data), (error) => alert(error));
+
   }
 
 }

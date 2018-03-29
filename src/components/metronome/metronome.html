@@ -3,7 +3,7 @@
   </div>
   <div class="metronome-bpm" text-center>
     <h1 >{{ bpm }}</h1>
-    <ion-range [(ngModel)]="bpm" (ngModelChange)="onChange()" color="danger" pin="true" min="30" max="400"></ion-range>
+    <ion-range [(ngModel)]="bpm" (ngModelChange)="onChange()" color="danger" pin="true" min="30" max="200"></ion-range>
     <ion-row (click)="onChange()">
       <ion-col><button ion-button clear (click)="bpm = bpm - 5">-5</button></ion-col>
       <ion-col><button ion-button clear (click)="bpm = bpm - 1">-1</button></ion-col>

@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from "@ionic-native/vibration";
+import { NativeAudio } from "@ionic-native/native-audio";
 
 import { MetronomeComponent } from "../components/metronome/metronome";
 
@@ -29,6 +30,7 @@ import { HomePage } from '../pages/home/home';
     StatusBar,
     SplashScreen,
     Vibration,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
